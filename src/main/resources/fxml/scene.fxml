@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<?import com.wexalian.showme.javafx.tab.DownloadTab?>-->
+<?import com.jfoenix.controls.JFXMasonryPane?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<JFXTabPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.wexalian.showme.javafx.controller.MainController">
+    <Tab closable="false"> <!--Download Tab-->
+    
+    </Tab>
+    <Tab closable="false"><!--Add Show Tab-->
+    
+    </Tab>
+    <Tab closable="false">
+    
+    </Tab>
+    <Tab closable="false" text="My Shows">
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER">
+            <JFXMasonryPane fx:id="showPane" HSpacing="10" VSpacing="10" cellHeight="250.0" cellWidth="150.0">
+                <padding>
+                    <Insets bottom="16" left="16" right="16" top="16" />
+                </padding>
+            </JFXMasonryPane>
+        </ScrollPane>
+    </Tab>
+    <!-->TV Show Tabs (dynamically added by opening shows)<-->
+</JFXTabPane>
