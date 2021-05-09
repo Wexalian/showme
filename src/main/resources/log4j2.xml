@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console">
+            <PatternLayout pattern="%highlight{[%d{HH:mm:ss}] [%level] [%logger{1}] %msg%n}" />
+        </Console>
+        
+        <!--        <File name="bt-core" append="false" fileName="bt.log">-->
+        <!--            <PatternLayout pattern="[%d{dd/MMM/yyyy:HH:mm:ss,SSS}] %-5p %c{1}: %m%n%ex"/>-->
+        <!--        </File>-->
+        <!--        <File name="bt-dht" append="false" fileName="bt-dht.log">-->
+        <!--            <PatternLayout pattern="[%d{dd/MMM/yyyy:HH:mm:ss,SSS}] %-5p %c{1}: %m%n%ex"/>-->
+        <!--        </File>-->
+        <!--        <Async name="A1" bufferSize="1000">-->
+        <!--            <appender-ref ref="bt-core"/>-->
+        <!--        </Async>-->
+        <!--        <Async name="A2" bufferSize="1000">-->
+        <!--            <appender-ref ref="bt-dht"/>-->
+        <!--        </Async>-->
+    </Appenders>
+    <!--    <Category name="bt">-->
+    <!--        <priority value="off" />-->
+    <!--    </Category>-->
+    <Loggers>
+        <Root level="DEBUG">
+            <AppenderRef ref="Console" />
+        </Root>
+        <!--    -->
+        <!--        <Logger name="STDOUT" level="trace" additivity="false">-->
+        <!--            <appender-ref ref="A1"/>-->
+        <!--        </Logger>-->
+        <!--        <Logger name="STDERR" level="trace" additivity="false">-->
+        <!--            <appender-ref ref="A1"/>-->
+        <!--        </Logger>-->
+        <!--        -->
+        <!--        <Logger name="bt" level="info" additivity="false">-->
+        <!--            <appender-ref ref="bt-core"/>-->
+        <!--        </Logger>-->
+        <!--        <Logger name="bt.dht" level="debug" additivity="false">-->
+        <!--            <appender-ref ref="bt-dht"/>-->
+        <!--        </Logger>-->
+        
+        <!--        <root level="warn">-->
+        <!--            <appender-ref ref="A1"/>-->
+        <!--        </root>-->
+    </Loggers>
+</Configuration>

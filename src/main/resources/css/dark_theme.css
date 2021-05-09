@@ -1,42 +1,59 @@
 * {
-    -fx-primary: #2A2E37;
-    -fx-secondary: #444B59;
-    -fx-primary-text: #B2B2B2;
+    -fx-primary: rgba(42, 46, 55, 1);
+    -fx-secondary: rgba(68, 75, 89, 1);
+    -fx-primary-text: rgba(178, 178, 178, 1);
+    -fx-overlay: rgba(127, 127, 127, 0.75);
+    -fx-overlay-text: rgba(255, 255, 255, 1);
+    -fx-overlay-text-border: rgba(0, 0, 0, 1);
+    -fx-invisible: rgba(0, 0, 0, 0);
 }
 
-.scroll-pane, .anchor-pane {
+AnchorPane {
     -fx-background-color: -fx-primary;
     -fx-background: -fx-primary;
 }
 
-.anchor-pane-2 {
-    -fx-background-color: #4a2E37;
+.scroll-pane {
+    -fx-background-color: -fx-primary;
+    -fx-background: -fx-primary;
 }
 
 .jfx-rippler {
     -jfx-rippler-fill: -fx-secondary;
 }
 
-#button {
+
+#download-title {
+    -fx-font: 18px "Arial";
+    -fx-fill: -fx-primary-text;
+}
+
+#download-text {
+    -fx-font: 14px "Arial";
+    -fx-fill: -fx-primary-text;
+}
+
+#description, #status {
+    -fx-font: 16px "Arial";
+    -fx-fill: -fx-primary-text;
+}
+
+#title {
+    -fx-font: 24px "Arial";
+    -fx-fill: -fx-primary-text;
+}
+
+.jfx-button {
     -fx-background-color: -fx-primary;
     -fx-text-fill: -fx-primary-text;
+    -fx-font-size: 14px;
+
     -jfx-rippler-fill: -fx-primary;
     -jfx-button-type: RAISED;
 }
 
-#poster, #bordered {
-    -fx-border-color: -fx-secondary;
-    -fx-border-width: 2px;
-    -fx-border-radius: 3px;
-    -fx-border-style: solid;
-}
-
-#poster:hover {
-    -fx-background-color: -fx-secondary;
-}
-
-.tab {
-    -fx-background-color: -fx-primary;
+.glyph-icon {
+    -fx-fill: -fx-primary-text;
 }
 
 .tab-label {
@@ -47,10 +64,37 @@
     -fx-background-color: -fx-primary;
 }
 
-.glyph-icon, #text {
-    -fx-fill: -fx-primary-text;
+
+#layer {
+    -fx-background-color: -fx-invisible;
 }
 
-/*#downloadQueue {*/
-    /*-fx-background-color: #ff0000;*/
-/*}*/
+#layer:hover {
+    -fx-background-color: -fx-overlay;
+}
+
+#show-text {
+    -fx-font: 18px "Arial Black";
+    -fx-fill: -fx-overlay-text;
+    -fx-stroke: -fx-overlay-text-border;
+    -fx-stroke-width: 1;
+    -fx-stroke-type: centered;
+    visibility: hidden;
+}
+
+#episode-text {
+    -fx-font: 14px "Arial Black";
+    -fx-fill: -fx-overlay-text;
+    -fx-stroke: -fx-overlay-text-border;
+    -fx-stroke-width: 1;
+    -fx-stroke-type: centered;
+    visibility: hidden;
+}
+
+#layer:hover #episode-text, #layer:hover #show-text {
+    visibility: visible;
+}
+
+.jfx-radio-button {
+    /*-fx-border-color: red;*/
+}

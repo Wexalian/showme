@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.SplitMenuButton?>
+<fx:root xmlns:fx="http://javafx.com/fxml/1" type="javafx.scene.layout.AnchorPane">
+    <ScrollPane fx:id="showScrollPane" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" prefWidth="825" maxHeight="300" hbarPolicy="NEVER" vbarPolicy="NEVER">
+        <!--dynamically loaded from show_info.fxml-->
+    </ScrollPane>
+    <ScrollPane fx:id="seasonScrollPane" AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0" prefWidth="825" maxHeight="300" hbarPolicy="NEVER" vbarPolicy="NEVER">
+        <!--dynamically loaded from season_info.fxml-->
+    </ScrollPane>
+    <ScrollPane fx:id="episodeScrollPane" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="300" prefWidth="412.5" hbarPolicy="NEVER" vbarPolicy="NEVER">
+        <AnchorPane>
+            <VBox spacing="10" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="40.0">
+                <HBox>
+                    <JFXButton fx:id="watchedButton" />
+                    <SplitMenuButton fx:id="actionButton" />
+                </HBox>
+                <Text id="title" fx:id="episodeTitle" wrappingWidth="350" />
+                <Text id="description" fx:id="episodeDescription" wrappingWidth="350" />
+                <VBox spacing="5">
+                    <Text id="description" fx:id="episodeReleaseDate" wrappingWidth="350" />
+                </VBox>
+            </VBox>
+        </AnchorPane>
+    </ScrollPane>
+    <JFXTabPane fx:id="seasonTabPane" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="300" prefWidth="1237.5" />
+</fx:root>

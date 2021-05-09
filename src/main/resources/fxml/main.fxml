@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import com.wexalian.showme.gui.component.pane.DownloadsPane?>
+<?import com.wexalian.showme.gui.component.tab.DownloadTab?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" prefHeight="900" prefWidth="1650" fx:controller="com.wexalian.showme.gui.controller.MainController">
+    <JFXTabPane fx:id="showTabPane" AnchorPane.rightAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
+        <Tab closable="false" text="Shows">
+            <VBox>
+                <BorderPane minHeight="50" prefHeight="50" maxHeight="50">
+                    <right>
+                        <HBox spacing="5">
+                            <VBox>
+                                <JFXRadioButton fx:id="hideCompletedButton" text="Hide Completed" prefHeight="25" />
+                                <JFXRadioButton fx:id="hideNotCompletedButton" text="Hide Not Completed" prefHeight="25" />
+                            </VBox>
+                            <VBox>
+                                <JFXRadioButton fx:id="hideEndedCanceledButton" text="Hide Ended" prefHeight="25" />
+                                <JFXRadioButton fx:id="hideCurrentlyAiringButton" text="Hide Airing" prefHeight="25" />
+                            </VBox>
+                            <VBox>
+                                <JFXRadioButton fx:id="hideCurrentlyWatching" text="Hide Watching" prefHeight="25" />
+                                <JFXRadioButton fx:id="hideNotCurrentlyWatching" text="Hide Not Watching" prefHeight="25" />
+                            </VBox>
+                        </HBox>
+                    </right>
+                </BorderPane>
+                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER" AnchorPane.rightAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="30" AnchorPane.bottomAnchor="0">
+                    <TilePane fx:id="showPane" alignment="BASELINE_CENTER" />
+                </ScrollPane>
+            </VBox>
+        </Tab>
+        <DownloadTab closable="false">
+            <DownloadsPane fx:id="downloadsPane" />
+        </DownloadTab>
+    </JFXTabPane>
+</AnchorPane>

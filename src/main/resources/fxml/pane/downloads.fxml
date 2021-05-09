@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.*?>
+<fx:root xmlns:fx="http://javafx.com/fxml/1" type="javafx.scene.layout.AnchorPane">
+    <ScrollPane fx:id="availableDownloads" AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0" prefWidth="1100" maxHeight="800" hbarPolicy="NEVER" vbarPolicy="NEVER">
+        <VBox />
+    </ScrollPane>
+    <ScrollPane fx:id="downloadQueue" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" prefWidth="550" maxHeight="800" hbarPolicy="NEVER" vbarPolicy="NEVER">
+        <VBox />
+    </ScrollPane>
+    <AnchorPane fx:id="currentDownload" AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.leftAnchor="0" minHeight="100">
+        <HBox />
+    </AnchorPane>
+</fx:root>

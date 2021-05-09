@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<fx:root xmlns:fx="http://javafx.com/fxml/" xmlns="http://javafx.com/javafx" type="javafx.scene.layout.AnchorPane" prefHeight="115.0" prefWidth="550.0">
+    <ImageView fx:id="imageView" fitWidth="188" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+    <Text fx:id="textEpisode" id="download-title" layoutX="214.0" wrappingWidth="300.0" AnchorPane.topAnchor="4.0" />
+    <Text fx:id="textTitle" id="download-text" layoutX="214.0" wrappingWidth="300.0" AnchorPane.topAnchor="30.0" />
+    <JFXProgressBar fx:id="progressBar" prefHeight="20.0" prefWidth="140.0" AnchorPane.leftAnchor="212.0" AnchorPane.bottomAnchor="8.0" />
+    <Text fx:id="textProgress" id="download-text" text="Waiting..." layoutX="360.0" AnchorPane.bottomAnchor="10.0" />
+    <Text fx:id="textPeerSeeds" id="download-text" text="0 peers" layoutX="214.0" AnchorPane.bottomAnchor="30.0" />
+    <JFXButton fx:id="cancelButton" AnchorPane.topAnchor="4.0" AnchorPane.rightAnchor="4.0" />
+</fx:root>
+

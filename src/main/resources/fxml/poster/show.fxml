@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<fx:root xmlns:fx="http://javafx.com/fxml/1" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/10.0.2-internal">
+    <StackPane>
+        <AnchorPane>
+            <ImageView fx:id="imageView" fitHeight="225.0" fitWidth="150.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            </ImageView>
+        </AnchorPane>
+        <AnchorPane id="layer" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <Text id="show-text" fx:id="title" layoutY="27.0" strokeType="OUTSIDE" textAlignment="CENTER" wrappingWidth="150" AnchorPane.topAnchor="14.0" />
+        </AnchorPane>
+    </StackPane>
+</fx:root>

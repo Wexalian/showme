@@ -1,0 +1,17 @@
+{
+  "TRAKT": {
+    "ACCESS_TOKEN": {
+      "access_token": "51f4346362514746bf2a2d009665cc2e078bfd02a6c95f87089de02322cb9085",
+      "refresh_token": "226faebe585bd44e15b9f38372624b918d51bca0126a1ffb2e8035bf2ed01ea0",
+      "created_at": 1614793686
+    }
+  },
+  "FILTERS": {
+    "HIDE_COMPLETED": true,
+    "HIDE_NOT_COMPLETED": false,
+    "HIDE_ENDED_CANCELED": false,
+    "HIDE_CURRENTLY_AIRING": false,
+    "HIDE_CURRENTLY_WATCHING": false,
+    "HIDE_NOT_CURRENTLY_WATCHING": true
+  }
+}

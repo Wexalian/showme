@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.TilePane?>
+<fx:root xmlns:fx="http://javafx.com/fxml" type="javafx.scene.control.ScrollPane" xmlns="http://javafx.com/javafx" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER">
+    <TilePane fx:id="episodePane" alignment="BASELINE_CENTER" />
+</fx:root>

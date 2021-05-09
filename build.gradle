@@ -1,77 +1,92 @@
-import com.install4j.gradle.Install4jTask
-
 plugins {
-    id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.7'
-    id 'org.beryx.jlink' version '2.10.3'
-    id 'edu.sc.seis.launch4j' version '2.4.6'
-    id 'edu.sc.seis.macAppBundle' version '2.3.0'
-    id "com.install4j.gradle" version "7.0.11"
+    id "application"
+    id "java"
+    id 'org.javamodularity.moduleplugin' version '1.7.0'
+    id "org.openjfx.javafxplugin" version "0.0.9"
+    id 'org.beryx.jlink' version '2.23.3'
 }
-
-group 'com.wexalian'
-version '0.0.0.1'
-
-sourceCompatibility = 1.12
-
-macAppBundle.mainClassName = mainClassName = "$moduleName/com.wexalian.showme.Main"
-
-applicationDefaultJvmArgs = ["--add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix", "--add-exports=javafx.controls/com.sun.javafx.scene.control=com.jfoenix"]
 
 repositories {
     mavenCentral()
-    maven {
-        url 'https://maven.ej-technologies.com/repository'
-    }
+    jcenter()
+    maven { url "https://dl.bintray.com/jerady/maven/" } // fontawesomefx
+    maven { url "http://4thline.org/m2" } // bt-upnp > cling
+    flatDir { dirs "libs" } // bt-dht
 }
 
-dependencies {
-    compile 'com.jfoenix:jfoenix:9.0.8'
+group "com.wexalian.showme"
+version "0.0.1"
+
+sourceCompatibility = 1.11
+mainClassName = "$moduleName/com.wexalian.showme.ShowMe"
+applicationDefaultJvmArgs = ["--add-exports=javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix",
+                             "--add-exports=javafx.controls/com.sun.javafx.scene.control=com.jfoenix",
+                             "--add-exports=javafx.graphics/com.sun.javafx.scene=com.jfoenix",
+                             "--add-opens=javafx.graphics/javafx.css=de.jensd.fx.fontawesomefx.commons",
+                             "--add-opens=java.base/java.lang=guice"]
+
+java {
+    modularity.inferModulePath = true
+}
+
+application {
+    mainModule = "com.wexalian.showme"
+    mainClass = "com.wexalian.showme.ShowMe"
 }
 
 javafx {
-    version = "12"
-    modules = ['javafx.controls', 'javafx.fxml']
-
+    version = "15.0.1"
+    modules = ["javafx.controls", "javafx.fxml"]
 }
 
 jlink {
-    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    addOptions '--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages'
+
     launcher {
-        name = 'ShowMe'
+        name = project.name + "-windows"
         jvmArgs = applicationDefaultJvmArgs
+        jpackage {
+            targetPlatformName = "windows"
+            installerOptions = ['--win-menu', '--win-shortcut', '--win-per-user-install']
+        }
     }
-    jpackage {
-        jpackageHome = 'C:/Program Files/Java/jdk-13'
-        installerOptions = ['--win-per-user-install', '--win-dir-chooser']
-    }
+    forceMerge('log4j-api')
 }
 
-
-launch4j {
-    mainClassName = 'com.wexalian.showme.Main'
-    downloadUrl = ''
-    jvmOptions.addAll(applicationDefaultJvmArgs)
-    headerType = "gui"
-    jreMinVersion = "1.11"
-//    bundledJrePath = 'jre'
-}
-
-jar {
-    manifest {
-        attributes(
-                'Main-Class': "com.wexalian.showme.Main",
-                'JavaFX-Application-Class': "com.wexalian.showme.Main",
-                'Automatic-Module-Name': "showme"
-//                'JavaFX-Preloader-Class': "com.wexalian.showme.PreLoader",
-        )
+dependencies {
+    //javafx libs
+    implementation "com.jfoenix:jfoenix:9.0.+"
+    implementation("org.controlsfx:controlsfx:11.0.+") {
+        exclude group: "org.openjfx"
     }
-}
-
-task genExe(type: Install4jTask) {
-    dependsOn 'launch4j'
-    projectFile = file('setup.install4j')
-    install4j {
-        installDir = file('C:/Program Files/install4j7')
+    implementation("de.jensd:fontawesomefx-commons:11.0") {
+        exclude group: "org.openjfx"
     }
+    implementation("de.jensd:fontawesomefx-fontawesome:4.7.0-11") {
+        exclude group: "org.openjfx"
+    }
+
+    //tv data libs
+    implementation "com.wexalian.jtrakt:jtrakt:+"
+    implementation "com.uwetrottmann.tmdb2:tmdb-java:2.2.0"
+
+    //torrenting libs
+    implementation "com.github.atomashpolskiy:bt-core:1.9"
+    implementation "com.github.atomashpolskiy:bt-upnp:1.9"
+    implementation "com.github.atomashpolskiy:bt-http-tracker-client:1.9"
+    implementation name: "bt-dht-1.10-SNAPSHOT-java9-compat"
+
+    //parsing
+    implementation "com.google.code.gson:gson:2.8.6"
+
+    //logging
+    implementation "org.apache.logging.log4j:log4j-api:2.13.+"
+    implementation "org.apache.logging.log4j:log4j-core:2.13.+"
+    implementation "org.slf4j:slf4j-nop:1.7.25"
+    implementation "org.fusesource.jansi:jansi:1.18"
+
+    //util
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+    implementation "com.google.guava:guava:30.0-jre"
+    implementation "org.apache.commons:commons-lang3:3.10"
 }
